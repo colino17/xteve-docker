@@ -21,6 +21,7 @@ VOLUME /root/.xteve
 VOLUME /tmp/xteve
 VOLUME /playlists
 VOLUME /xmltv
+VOLUME /logos
 
 # FFMPEG AND VLC
 RUN apk add ffmpeg
@@ -29,6 +30,7 @@ RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
 # XTEVE
 RUN wget https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_amd64.zip -O temp.zip; unzip temp.zip -d /usr/bin/; rm temp.zip
+ADD logos /logos
 
 # PERMISSIONS
 RUN chmod +x /usr/bin/xteve
