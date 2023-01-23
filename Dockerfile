@@ -54,4 +54,4 @@ EXPOSE 34400
 
 # ENTRYPOINT
 ENTRYPOINT ["/init"]
-#ENTRYPOINT ["xteve -port=34400 -config=/config"]
+CMD ["xteve -port=34400 -config=/root/.xteve/"]
