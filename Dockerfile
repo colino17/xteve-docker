@@ -41,4 +41,4 @@ RUN chmod +x /scripts/xteve.sh
 EXPOSE 34400
 
 # ENTRYPOINT
-ENTRYPOINT ["/bin/bash /scripts/xteve.sh"]
+ENTRYPOINT ["./scripts/xteve.sh"]
