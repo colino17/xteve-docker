@@ -22,7 +22,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # XTEVE
 RUN wget https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_amd64.zip -O temp.zip; unzip temp.zip -d /usr/bin/; rm temp.zip
 ADD logos /logos
-ADD scripts /scripts
+ADD xteve.sh /
 ADD sample.conf /
 
 # VOLUMES
@@ -35,10 +35,10 @@ VOLUME /logos
 
 # PERMISSIONS
 RUN chmod +x /usr/bin/xteve
-RUN chmod +x /scripts/xteve.sh
+RUN chmod +x /xteve.sh
 
 # PORTS
 EXPOSE 34400
 
 # ENTRYPOINT
-ENTRYPOINT ["./scripts/xteve.sh"]
+ENTRYPOINT ["./xteve.sh"]
