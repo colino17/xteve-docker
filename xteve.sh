@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 XTEVE_FILE=/config/xteve.conf
 
