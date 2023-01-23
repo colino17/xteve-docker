@@ -18,9 +18,17 @@ ENV PUID=1000
 ENV PGID=1000
 
 # BASICS
-RUN apk update
-RUN apk upgrade
-RUN apk add --no-cache ca-certificates
+RUN apk upgrade --update --no-cache \
+    && apk add --no-cache \
+    ca-certificates \
+    curl \
+    tzdata \
+    bash \
+    coreutils \
+    shadow \
+    ffmpeg \
+    vlc \
+    gnutls-utils
 
 # TIMEZONE
 RUN apk update && apk add --no-cache tzdata
@@ -36,11 +44,6 @@ VOLUME /tmp/xteve
 VOLUME /playlists
 VOLUME /xmltv
 VOLUME /logos
-
-# FFMPEG AND VLC
-RUN apk add ffmpeg
-RUN apk add vlc
-RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
 # XTEVE
 RUN wget https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_amd64.zip -O temp.zip; unzip temp.zip -d /usr/bin/; rm temp.zip
