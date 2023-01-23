@@ -41,4 +41,4 @@ RUN chmod +x /xteve.sh
 EXPOSE 34400
 
 # ENTRYPOINT
-ENTRYPOINT ["/usr/bin/xteve -port=34400 -config=/config"]
+ENTRYPOINT ["./xteve.sh"]
